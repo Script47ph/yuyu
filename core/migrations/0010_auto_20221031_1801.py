@@ -52,6 +52,26 @@ class Migration(migrations.Migration):
             field=djmoney.models.fields.CurrencyField(choices=[('USD', 'US Dollar')], default='USD', editable=False, max_length=3),
         ),
         migrations.AlterField(
+            model_name='externalportsprice',
+            name='hourly_price',
+            field=djmoney.models.fields.MoneyField(decimal_places=2, max_digits=10),
+        ),
+        migrations.AlterField(
+            model_name='externalportsprice',
+            name='hourly_price_currency',
+            field=djmoney.models.fields.CurrencyField(choices=[('USD', 'US Dollar')], default='USD', editable=False, max_length=3),
+        ),
+        migrations.AlterField(
+            model_name='externalportsprice',
+            name='monthly_price',
+            field=djmoney.models.fields.MoneyField(blank=True, decimal_places=2, default=None, max_digits=10, null=True),
+        ),
+        migrations.AlterField(
+            model_name='externalportsprice',
+            name='monthly_price_currency',
+            field=djmoney.models.fields.CurrencyField(choices=[('USD', 'US Dollar')], default='USD', editable=False, max_length=3),
+        ),
+        migrations.AlterField(
             model_name='imageprice',
             name='hourly_price',
             field=djmoney.models.fields.MoneyField(decimal_places=2, max_digits=10),
@@ -98,6 +118,26 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='invoicefloatingip',
+            name='monthly_price_currency',
+            field=djmoney.models.fields.CurrencyField(choices=[('USD', 'US Dollar')], default='USD', editable=False, max_length=3),
+        ),
+        migrations.AlterField(
+            model_name='invoiceexteranalport',
+            name='hourly_price',
+            field=djmoney.models.fields.MoneyField(decimal_places=2, max_digits=10),
+        ),
+        migrations.AlterField(
+            model_name='invoiceexteranalport',
+            name='hourly_price_currency',
+            field=djmoney.models.fields.CurrencyField(choices=[('USD', 'US Dollar')], default='USD', editable=False, max_length=3),
+        ),
+        migrations.AlterField(
+            model_name='invoiceexteranalport',
+            name='monthly_price',
+            field=djmoney.models.fields.MoneyField(blank=True, decimal_places=2, default=None, max_digits=10, null=True),
+        ),
+        migrations.AlterField(
+            model_name='invoiceexteranalport',
             name='monthly_price_currency',
             field=djmoney.models.fields.CurrencyField(choices=[('USD', 'US Dollar')], default='USD', editable=False, max_length=3),
         ),

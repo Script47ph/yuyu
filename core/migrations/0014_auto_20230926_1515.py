@@ -43,6 +43,16 @@ class Migration(migrations.Migration):
             field=djmoney.models.fields.MoneyField(blank=True, decimal_places=2, default=None, max_digits=256, null=True),
         ),
         migrations.AlterField(
+            model_name='externalportsprice',
+            name='hourly_price',
+            field=djmoney.models.fields.MoneyField(decimal_places=2, max_digits=256),
+        ),
+        migrations.AlterField(
+            model_name='externalportsprice',
+            name='monthly_price',
+            field=djmoney.models.fields.MoneyField(blank=True, decimal_places=2, default=None, max_digits=256, null=True),
+        ),
+        migrations.AlterField(
             model_name='imageprice',
             name='hourly_price',
             field=djmoney.models.fields.MoneyField(decimal_places=2, max_digits=256),
@@ -69,6 +79,16 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='invoicefloatingip',
+            name='monthly_price',
+            field=djmoney.models.fields.MoneyField(blank=True, decimal_places=2, default=None, max_digits=256, null=True),
+        ),
+        migrations.AlterField(
+            model_name='invoiceexternalport',
+            name='hourly_price',
+            field=djmoney.models.fields.MoneyField(decimal_places=2, max_digits=256),
+        ),
+        migrations.AlterField(
+            model_name='invoiceexternalport',
             name='monthly_price',
             field=djmoney.models.fields.MoneyField(blank=True, decimal_places=2, default=None, max_digits=256, null=True),
         ),

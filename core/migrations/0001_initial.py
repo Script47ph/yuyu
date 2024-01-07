@@ -57,6 +57,21 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
+            name='ExternalPortsPrice',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ('updated_at', models.DateTimeField(auto_now=True)),
+                ('hourly_price_currency', djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah'), ('USD', 'US Dollar')], default='IDR', editable=False, max_length=3)),
+                ('hourly_price', djmoney.models.fields.MoneyField(decimal_places=0, max_digits=10)),
+                ('monthly_price_currency', djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah'), ('USD', 'US Dollar')], default='IDR', editable=False, max_length=3)),
+                ('monthly_price', djmoney.models.fields.MoneyField(blank=True, decimal_places=0, default=None, max_digits=10, null=True)),
+            ],
+            options={
+                'abstract': False,
+            },
+        ),
+        migrations.CreateModel(
             name='Invoice',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -149,6 +164,26 @@ class Migration(migrations.Migration):
                 ('fip_id', models.CharField(max_length=266)),
                 ('ip', models.CharField(max_length=256)),
                 ('invoice', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='floating_ips', to='core.invoice')),
+            ],
+            options={
+                'abstract': False,
+            },
+        ),
+        migrations.CreateModel(
+            name='InvoiceExternalPort',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ('updated_at', models.DateTimeField(auto_now=True)),
+                ('hourly_price_currency', djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah'), ('USD', 'US Dollar')], default='IDR', editable=False, max_length=3)),
+                ('hourly_price', djmoney.models.fields.MoneyField(decimal_places=0, max_digits=10)),
+                ('monthly_price_currency', djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah'), ('USD', 'US Dollar')], default='IDR', editable=False, max_length=3)),
+                ('monthly_price', djmoney.models.fields.MoneyField(blank=True, decimal_places=0, default=None, max_digits=10, null=True)),
+                ('start_date', models.DateTimeField()),
+                ('end_date', models.DateTimeField(blank=True, default=None, null=True)),
+                ('fip_id', models.CharField(max_length=266)),
+                ('ip', models.CharField(max_length=256)),
+                ('invoice', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='external ip', to='core.invoice')),
             ],
             options={
                 'abstract': False,
