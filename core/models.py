@@ -12,7 +12,7 @@ from djmoney.money import Money
 
 from core.component import labels
 from core.component.labels import LABEL_INSTANCES, LABEL_IMAGES, LABEL_SNAPSHOTS, LABEL_ROUTERS, LABEL_FLOATING_IPS, \
-    LABEL_EXTERNAL_PORTS, LABEL_VOLUMES
+    LABEL_EXTERNAL_IPS, LABEL_VOLUMES
 from core.utils.model_utils import BaseModel, TimestampMixin, PriceMixin, InvoiceComponentMixin
 
 LOG = logging.getLogger("yuyu")
@@ -42,7 +42,8 @@ class FloatingIpsPrice(BaseModel, TimestampMixin, PriceMixin):
     # No need for any additional field
     pass
 
-class ExternalPortsPrice(BaseModel, TimestampMixin, PriceMixin):
+
+class ExternalIpsPrice(BaseModel, TimestampMixin, PriceMixin):
     # No need for any additional field
     pass
 
@@ -162,7 +163,7 @@ class Invoice(BaseModel, TimestampMixin):
 
     @property
     def port_price(self):
-        relation_all_row = getattr(self, LABEL_EXTERNAL_PORTS).all()
+        relation_all_row = getattr(self, LABEL_EXTERNAL_IPS).all()
         return sum(map(lambda x: x.price_charged, relation_all_row))
 
     @property
@@ -204,8 +205,9 @@ class InvoiceFloatingIp(BaseModel, InvoiceComponentMixin):
     # Informative
     ip = models.CharField(max_length=256)
 
-class InvoiceExternalPort(BaseModel, InvoiceComponentMixin):
-    invoice = models.ForeignKey('Invoice', on_delete=models.CASCADE, related_name=labels.LABEL_EXTERNAL_PORTS)
+
+class InvoiceExternalIp(BaseModel, InvoiceComponentMixin):
+    invoice = models.ForeignKey('Invoice', on_delete=models.CASCADE, related_name=labels.LABEL_EXTERNAL_IPS)
     # Key
     port_id = models.CharField(max_length=266)
 

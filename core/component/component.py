@@ -4,15 +4,15 @@ from core.component.router.event_handler import RouterEventHandler
 from core.component.router.invoice_handler import RouterInvoiceHandler
 from core.component.snapshot.event_handler import SnapshotEventHandler
 from core.component.snapshot.invoice_handler import SnapshotInvoiceHandler
-from core.models import InvoiceInstance, InvoiceVolume, InvoiceFloatingIp, InvoiceExternalPort, FlavorPrice, FloatingIpsPrice, ExternalPortsPrice, VolumePrice, \
+from core.models import InvoiceInstance, InvoiceVolume, InvoiceFloatingIp, InvoiceExternalIp, FlavorPrice, FloatingIpsPrice, ExternalIpsPrice, VolumePrice, \
     RouterPrice, SnapshotPrice, InvoiceRouter, InvoiceSnapshot, ImagePrice, InvoiceImage
 from core.component.floating_ips.event_handler import FloatingIpEventHandler
 from core.component.floating_ips.invoice_handler import FloatingIpInvoiceHandler
-from core.component.external_ports.event_handler import ExternalPortEventHandler
-from core.component.external_ports.invoice_handler import ExternalPortInvoiceHandler
+from core.component.external_ips.event_handler import ExternalIpEventHandler
+from core.component.external_ips.invoice_handler import ExternalIpInvoiceHandler
 from core.component.instances.event_handler import InstanceEventHandler
 from core.component.instances.invoice_handler import InstanceInvoiceHandler
-from core.component.labels import LABEL_INSTANCES, LABEL_VOLUMES, LABEL_FLOATING_IPS, LABEL_EXTERNAL_PORTS, LABEL_ROUTERS, LABEL_SNAPSHOTS, \
+from core.component.labels import LABEL_INSTANCES, LABEL_VOLUMES, LABEL_FLOATING_IPS, LABEL_EXTERNAL_IPS, LABEL_ROUTERS, LABEL_SNAPSHOTS, \
     LABEL_IMAGES
 from core.component.volume.event_handler import VolumeEventHandler
 from core.component.volume.invoice_handler import VolumeInvoiceHandler
@@ -23,7 +23,7 @@ Define a model that represent price for particular component
 PRICE_MODEL = {
     "flavor": FlavorPrice,
     "floating_ip": FloatingIpsPrice,
-    "external_port": ExternalPortsPrice,
+    "external_ip": ExternalIpsPrice,
     "volume": VolumePrice,
     "router": RouterPrice,
     "snapshot": SnapshotPrice,
@@ -38,7 +38,7 @@ INVOICE_COMPONENT_MODEL = {
     LABEL_INSTANCES: InvoiceInstance,
     LABEL_VOLUMES: InvoiceVolume,
     LABEL_FLOATING_IPS: InvoiceFloatingIp,
-    LABEL_EXTERNAL_PORTS: InvoiceExternalPort,
+    LABEL_EXTERNAL_IPS: InvoiceExternalIp,
     LABEL_ROUTERS: InvoiceRouter,
     LABEL_SNAPSHOTS: InvoiceSnapshot,
     LABEL_IMAGES: InvoiceImage
@@ -51,7 +51,7 @@ EVENT_HANDLER = {
     LABEL_INSTANCES: InstanceEventHandler,
     LABEL_VOLUMES: VolumeEventHandler,
     LABEL_FLOATING_IPS: FloatingIpEventHandler,
-    LABEL_EXTERNAL_PORTS: ExternalPortEventHandler,
+    LABEL_EXTERNAL_IPS: ExternalIpEventHandler,
     LABEL_ROUTERS: RouterEventHandler,
     LABEL_SNAPSHOTS: SnapshotEventHandler,
     LABEL_IMAGES: ImageEventHandler
@@ -64,7 +64,7 @@ INVOICE_HANDLER = {
     LABEL_INSTANCES: InstanceInvoiceHandler(),
     LABEL_VOLUMES: VolumeInvoiceHandler(),
     LABEL_FLOATING_IPS: FloatingIpInvoiceHandler(),
-    LABEL_EXTERNAL_PORTS: ExternalPortInvoiceHandler(),
+    LABEL_EXTERNAL_IPS: ExternalIpInvoiceHandler(),
     LABEL_ROUTERS: RouterInvoiceHandler(),
     LABEL_SNAPSHOTS: SnapshotInvoiceHandler(),
     LABEL_IMAGES: ImageInvoiceHandler()

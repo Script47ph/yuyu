@@ -1,15 +1,15 @@
 from core.component.base.event_handler import EventHandler
-from core.component.external_ports.invoice_handler import ExternalPortInvoiceHandler
+from core.component.external_ports.invoice_handler import ExternalIpInvoiceHandler
 
 
-class ExternalPortEventHandler(EventHandler):
+class ExternalIpEventHandler(EventHandler):
     def handle(self, event_type, raw_payload):
-        if event_type == 'externalport.create.end':
+        if event_type == 'externalip.create.end':
             tenant_id = raw_payload['port']['tenant_id']
             invoice = self.get_tenant_progress_invoice(tenant_id)
             self.handle_create(invoice, event_type, raw_payload)
 
-        if event_type == 'externalport.delete.end':
+        if event_type == 'externalip.delete.end':
             tenant_id = raw_payload['port']['tenant_id']
             invoice = self.get_tenant_progress_invoice(tenant_id)
             self.handle_delete(invoice, event_type, raw_payload)

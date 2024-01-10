@@ -122,6 +122,19 @@ def metrics(request):
                     project_id=i.invoice.project.tenant_id,
                 ).set(i.usage_time)
 
+        if k == labels.LABEL_EXTERNAL_IPS:
+            for i in items:
+                metric.EXTERNALIP_COST_METRIC.labels(
+                    job="externalip_cost",
+                    name=i.ip,
+                    project_id=i.invoice.project.tenant_id,
+                ).set(i.price_charged.amount)
+                metric.EXTERNALIP_USAGE_METRIC.labels(
+                    job="externalip_usage",
+                    name=i.ip,
+                    project_id=i.invoice.project.tenant_id,
+                ).set(i.usage_time)
+
         if k == labels.LABEL_ROUTERS:
             for i in items:
                 metric.ROUTER_COST_METRIC.labels(

@@ -37,12 +37,12 @@ class Migration(migrations.Migration):
             field=djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah')], default='IDR', editable=False, max_length=3),
         ),
         migrations.AlterField(
-            model_name='externalportsprice',
+            model_name='externalipsprice',
             name='hourly_price_currency',
             field=djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah')], default='IDR', editable=False, max_length=3),
         ),
         migrations.AlterField(
-            model_name='externalportsprice',
+            model_name='externalipsprice',
             name='monthly_price_currency',
             field=djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah')], default='IDR', editable=False, max_length=3),
         ),
@@ -77,12 +77,12 @@ class Migration(migrations.Migration):
             field=djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah')], default='IDR', editable=False, max_length=3),
         ),
         migrations.AlterField(
-            model_name='invoiceexternalport',
+            model_name='invoiceexternalip',
             name='hourly_price_currency',
             field=djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah')], default='IDR', editable=False, max_length=3),
         ),
         migrations.AlterField(
-            model_name='invoiceexternalport',
+            model_name='invoiceexternalip',
             name='monthly_price_currency',
             field=djmoney.models.fields.CurrencyField(choices=[('IDR', 'Indonesian Rupiah')], default='IDR', editable=False, max_length=3),
         ),

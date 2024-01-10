@@ -57,7 +57,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='ExternalPortsPrice',
+            name='ExternalIpsPrice',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
@@ -170,7 +170,7 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='InvoiceExternalPort',
+            name='InvoiceExternalIp',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
@@ -181,7 +181,7 @@ class Migration(migrations.Migration):
                 ('monthly_price', djmoney.models.fields.MoneyField(blank=True, decimal_places=0, default=None, max_digits=10, null=True)),
                 ('start_date', models.DateTimeField()),
                 ('end_date', models.DateTimeField(blank=True, default=None, null=True)),
-                ('fip_id', models.CharField(max_length=266)),
+                ('port_id', models.CharField(max_length=266)),
                 ('ip', models.CharField(max_length=256)),
                 ('invoice', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='external ip', to='core.invoice')),
             ],

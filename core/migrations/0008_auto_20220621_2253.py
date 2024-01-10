@@ -13,16 +13,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='billingproject',
             name='email_notification',
-            field=models.EmailField(blank=True, max_length=256, null=True),
+            field=models.EmailField(blank=True, max_length=65, null=True),
         ),
         migrations.AlterField(
             model_name='flavorprice',
             name='flavor_id',
-            field=models.CharField(max_length=256, unique=True),
+            field=models.CharField(max_length=65, unique=True),
         ),
         migrations.AlterField(
             model_name='volumeprice',
             name='volume_type_id',
-            field=models.CharField(max_length=256, unique=True),
+            field=models.CharField(max_length=65, unique=True),
         ),
     ]

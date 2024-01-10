@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from core.models import FlavorPrice, VolumePrice, FloatingIpsPrice, ExternalPortsPrice, BillingProject, Invoice, InvoiceVolume, \
-    InvoiceFloatingIp, InvoiceExternalPort, InvoiceInstance, DynamicSetting, InvoiceImage, ImagePrice, SnapshotPrice, RouterPrice, \
+from core.models import FlavorPrice, VolumePrice, FloatingIpsPrice, ExternalIpsPrice, BillingProject, Invoice, InvoiceVolume, \
+    InvoiceFloatingIp, InvoiceExternalIp, InvoiceInstance, DynamicSetting, InvoiceImage, ImagePrice, SnapshotPrice, RouterPrice, \
     InvoiceSnapshot, InvoiceRouter, Notification, Balance, BalanceTransaction
 
 
@@ -19,9 +19,11 @@ class FlavorPriceAdmin(admin.ModelAdmin):
 class FloatingIpsPriceAdmin(admin.ModelAdmin):
     list_display = ('hourly_price', 'monthly_price')
 
-@admin.register(ExternalPortsPrice)
-class ExternalPortsPriceAdmin(admin.ModelAdmin):
+
+@admin.register(ExternalIpsPrice)
+class ExternalIpsPriceAdmin(admin.ModelAdmin):
     list_display = ('hourly_price', 'monthly_price')
+
 
 @admin.register(VolumePrice)
 class VolumePriceAdmin(admin.ModelAdmin):
@@ -62,9 +64,11 @@ class InvoiceInstanceAdmin(admin.ModelAdmin):
 class InvoiceFloatingIpAdmin(admin.ModelAdmin):
     list_display = ('fip_id',)
 
-@admin.register(InvoiceExternalPort)
-class InvoiceExternalPortAdmin(admin.ModelAdmin):
+
+@admin.register(InvoiceExternalIp)
+class InvoiceExternalIpAdmin(admin.ModelAdmin):
     list_display = ('port_id',)
+
 
 @admin.register(InvoiceVolume)
 class InvoiceVolumeAdmin(admin.ModelAdmin):

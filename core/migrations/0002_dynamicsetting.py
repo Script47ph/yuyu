@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='DynamicSetting',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('key', models.CharField(db_index=True, max_length=256, unique=True)),
+                ('key', models.CharField(db_index=True, max_length=65, unique=True)),
                 ('value', models.TextField()),
                 ('type', models.IntegerField(choices=[(1, 'Boolean'), (2, 'Int'), (3, 'Str'), (4, 'Json')])),
             ],

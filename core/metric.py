@@ -16,8 +16,8 @@ VOLUME_USAGE_METRIC = prometheus_client.Gauge('volume_usage', 'Usage time of vol
 FLOATINGIP_COST_METRIC = prometheus_client.Gauge('floatingip_cost', 'Cost of floatingip usage', labelnames=['job', 'name', 'project_id'])
 FLOATINGIP_USAGE_METRIC = prometheus_client.Gauge('floatingip_usage', 'Usage time of floatingip', labelnames=['job', 'name', 'project_id'])
 
-EXTERNALPORT_COST_METRIC = prometheus_client.Gauge('externalport_cost', 'Cost of externalport usage', labelnames=['job', 'name', 'project_id'])
-EXTERNALPORT_USAGE_METRIC = prometheus_client.Gauge('externalport_usage', 'Usage time of externalport', labelnames=['job', 'name', 'project_id'])
+EXTERNALIP_COST_METRIC = prometheus_client.Gauge('externalip_cost', 'Cost of externalip usage', labelnames=['job', 'name', 'project_id'])
+EXTERNALIP_USAGE_METRIC = prometheus_client.Gauge('externalip_usage', 'Usage time of externalip', labelnames=['job', 'name', 'project_id'])
 
 
 ROUTER_COST_METRIC = prometheus_client.Gauge('router_cost', 'Cost of router usage', labelnames=['job', 'name', 'project_id'])
